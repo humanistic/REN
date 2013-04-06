@@ -2,7 +2,7 @@
 
 ## Introduction
 
-**REN** is simple yet powerful data exchange format. It's very human friendly and pleasant to read. 
+**REN** is simple yet powerful data storage, exchange and notation format. It's very human friendly and pleasant to read. 
 Every value in **REN** has it's own type to allow easier describtion of your data. See for yourself.
 
 There are strings:
@@ -11,14 +11,14 @@ There are strings:
 
 And there are words:
 	
-	hello world   ; hello world
+	hello world
 
 Numbers are also supported in integer and floating point form.
 
     1
-	-1
-	3.14
-	-2.354e3
+    -1
+    3.14
+    -2.354e3
 
 Another type will tell you where to get help:
 
@@ -85,12 +85,6 @@ is same as
 
     a: [1 "b" c@d.e]
 
-###Comment  
-
-Comments start with `;`
-
-    ; this is comment
-
 ####Why not comma?
 
 The question is, why comma? 
@@ -115,9 +109,15 @@ However languages with richer datatype support may understand this as for exampl
 
 Just use it as you want to. It's simpler way to express itself.
 
+###Comment  
+
+Comments start with `;`
+
+    ; this is comment
+
 ###String
 
-There are two types of string. Single line and multi line. Single line string tarts and ends with quotes. Multiline string starts with `{` and ends with `}`. String is UTF-8 encoded. Special characters are escaped with `^` (see table below)
+There are two types of string. Single line and multi line. Single line string starts and ends with quotes. Multiline string starts with `{` and ends with `}`. String is UTF-8 encoded. Special characters are escaped with `^` (see table below)
 
     "single line"
 
@@ -234,6 +234,20 @@ Key (also set-word) is used to indicate that word should get following value. Fo
     name: "Pepa"
     color: #FF00FF
 
+###Boolean (logic)
+
+There are six boolean value. Why not just to? Because `TRUE` and `FALSE` isn't enough. Sometimes it's better to use `YES` or `NO` or `ON` and `OFF`.	
+
+	TRUE
+	NO
+	ON
+
+###None
+
+`NONE` is value that loader should convert to apropriate value in target language, for example `NULL`.
+	
+	NONE
+	
 ###Integer
 
 64bit integer number
