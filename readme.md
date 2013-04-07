@@ -3,7 +3,7 @@
 ## Introduction
 
 **REN** is simple yet powerful data storage, exchange and notation format. It's very human friendly and pleasant to read. 
-Every value in **REN** has it's own type to allow easier describtion of your data. See for yourself.
+Every value in **REN** has its own type to allow easier describtion of your data. See for yourself.
 
 There are strings:
 
@@ -68,7 +68,7 @@ See? It's simple.
 
 ###Why?
 
-It's much easier to eyes than XML and JSON and at the same time it's at least as powerful. Broader datatype support is also great property of REN. 
+It's much easier on the eyes than XML and JSON and at the same time it's at least as powerful. Broader datatype support is also great property of REN. 
 
 ##Syntax
 
@@ -85,7 +85,7 @@ is same as
 
     a: [1 "b" c@d.e]
 
-####Why not comma?
+####Why no comma?
 
 The question is, why comma? 
 
@@ -99,7 +99,7 @@ See this example:
 
     send someone@somewhere.com "Something"
 
-In laungages with poor datatype support this as be interpreted as:
+In languages with poor datatype support this could be interpreted as:
 
     {"send","someone@somewhere.com","Something" };
 
@@ -236,7 +236,7 @@ Key (also set-word) is used to indicate that word should get following value. Fo
 
 ###Boolean (logic)
 
-There are six boolean value. Why not just to? Because `TRUE` and `FALSE` isn't enough. Sometimes it's better to use `YES` or `NO` or `ON` and `OFF`.	
+There are six boolean values. Why not just two? Because `TRUE` and `FALSE` are not enough. Sometimes it's better to use `YES` or `NO` or `ON` and `OFF`.	
 
 	TRUE
 	NO
