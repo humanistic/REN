@@ -32,38 +32,61 @@ The basic form of data collection in REN is block.
 	
 You can also add header to data transmission to inform the loader about type of data.
 	
-    REN[
-        Title: "REN Example"
-        Type: example
-        Date: 5-4-2013
-		Expires: never
-        Version: 0.0.1
-        Author: "Boleslav Brezovsky"
-    ]
-    
-    "hello world"
-    {
-        hello multiline
-        world
-    }
-    word
-    3.14
-    [a b c d]
-    info: [time is 2:45 and date is 2013-4-5]
-    person: object! [
-        name: "Jaro"
-        age: 1
-        email: jaro@leto.com
-    ]
-
-    ; this is comment
-
-    example: map! [
-        "key1" "value1"
-        "key2" http://value2.com
-        "key3" value3@value.com
-    ]
-
+	REN[
+		name: Ren
+		occupation: "Data language"
+		purpose: {
+			Easily share data between people and machines.
+			Keep the rules simple.
+			Be useful.
+		}
+		version: 0.0.1
+		created: 5-Apr-2013
+		modified: 13:59:01
+		started: 5-Apr-2013/13:59+2:00
+		expires: never
+	]
+	
+	home: https://github.com/humanistic/REN
+	email: info@ren-lang.org
+	complete?: no
+	comments-start-with: #";"
+	primary-delmiters: [#" " #"^-" #"^/"] ; space tab newline
+	
+	test: (1 + 1)
+	starting-file: %readme.txt
+	off-the-beaten: 'a/b/c
+	axis: /x
+	bin-hex-val: #{48656C6C6F20776F726C6421}
+	bin-base-64-val: 64#{SGVsbG8gd29ybGQh}
+	
+	number-of-supporters: 300
+	avg-IQ: 147.35
+	cost-to-use: $0.00
+	happy-users: 98.6%
+	
+	common-hashtag: #ren
+	screen-size: 1920x1080
+	favorite-tag: <bold>
+	;favorite-color: 92.128.164
+	;lives-at: 127.0.0.1	
+	
+	object! [
+		a: 1
+		b: "test"
+	]
+	
+	map! [
+		"key 1" 1
+		"key 2" "test"
+	]
+	dataypes: [
+		word! string! tuple! date! time! url! email! logic! 
+		block! char! paren! file! path! refinement! binary!
+		integer! decimal! money! percent! issue! pair! tag!
+		object! map!
+	]
+	
 See? It's simple.
 
 ###Why?
