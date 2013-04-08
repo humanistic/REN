@@ -3,7 +3,7 @@
 ## Introduction
 
 **REN** is simple yet powerful data storage, exchange and notation format. It's very human friendly and pleasant to read. 
-Every value in **REN** has its own type to allow easier describtion of your data. See for yourself.
+Every value in **REN** has its own type to allow easier description of your data. See for yourself.
 
 There are strings:
 
@@ -325,6 +325,6 @@ Map is similiar to object but can have strings as keys.
 
 ###Header
 
-Header is optional but you are encouraged to use it. Unless you know what you are sending and where, you should add header as it enhances readability. Header can contain name, type, version, date, checksum and other useful informations about following data. Parse can for example just read header and decide if it makes sense to read rest of data (they may require higher version, data are expired etc.). Format of header is REN followed by block of key/value pairs. Header can be empty also.
+The header is optional but you are encouraged to use it. Unless you know what you are sending and where, you should include a header as it enhances readability. The header can contain name, type, version, date, checksum and other useful information about the data that follows. Parsers can then, for example, just read the header and decide if it makes sense to read the rest of the data. It may require version handling, deal with expired data etc. The header format is `REN` followed by a block of key/value pairs. The header can also be empty.
 
 
