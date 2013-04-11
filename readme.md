@@ -128,7 +128,7 @@ In languages with poor datatype support this could be interpreted as:
 
 However languages with richer datatype support may understand this as for example Remote Procedure Call  (RPC):
 
-   sendEmail("someone@somewhere.com","Something"");
+   sendEmail("someone@somewhere.com","Something");
 
 Just use it as you want to. It's simpler way to express itself.
 
@@ -230,7 +230,45 @@ Inserts control-letter (A-Z).
 Inserts an Unicode character by hexidecimal (xxxx) number.
 </td></tr></table>
 
+###None
 
+`NONE` is value that loader should convert to apropriate value in target language, for example `NULL`.
+	
+	NONE
+
+###Boolean (logic)
+
+There are six boolean values. Why not just two? Because `TRUE` and `FALSE` are not enough. Sometimes it's better to use `YES` or `NO` or `ON` and `OFF`.	
+
+	TRUE
+	NO
+	ON
+
+###Integer
+
+64bit integer number
+
+    1
+    -23242
+
+Parser rules:
+
+	numbers: [#"0" - #"9"]
+	exponent: [#"e" | #"E"]
+	minus: #"-"
+	integer: [opt minus some numbers opt [exponent opt minus some numbers]]
+	
+###Floating point
+
+Floating point number
+
+    3.14
+    1.2e34
+
+Parser rules:
+	
+	dot: #"."
+	float: [opt minus some numbers dot integer]
 
 ###Word
 
@@ -249,6 +287,12 @@ Some syntax is reserved for future but not currently implemeted:
 	hello: world  ; set hello to 'world
     hello: :world ; set hello to 'world key value
 	
+Parser rules:
+
+	letters: [#"a" - #"z" #"A" - #"Z"]
+	specials: [#"?" #"!" #"." #"'" #"+" #"-" #"*" #"&" #"|" #"=" #"_"]
+	characters: [some [letters | numbers | specials]]
+	
 ###Key (set-word)
 
 Key (also set-word) is used to indicate that word should get following value. Format of set-word is word followed by colon.
@@ -256,34 +300,6 @@ Key (also set-word) is used to indicate that word should get following value. Fo
     a: 1
     name: "Pepa"
     color: #FF00FF
-
-###Boolean (logic)
-
-There are six boolean values. Why not just two? Because `TRUE` and `FALSE` are not enough. Sometimes it's better to use `YES` or `NO` or `ON` and `OFF`.	
-
-	TRUE
-	NO
-	ON
-
-###None
-
-`NONE` is value that loader should convert to apropriate value in target language, for example `NULL`.
-	
-	NONE
-	
-###Integer
-
-64bit integer number
-
-    1
-    -23242
-
-###Floating point
-
-Floating point number
-
-    3.14
-    1.2e34
 
 ###Email
 
