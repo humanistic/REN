@@ -89,13 +89,13 @@ You can also add header to data transmission to inform the loader about type of 
 	
 See? It's simple.
 
-###Why?
+### Why?
 
 It's much easier on the eyes than XML and JSON and at the same time it's at least as powerful. Broader datatype support is also great property of REN. 
 
-##Syntax
+## Syntax
 
-###Whitespaces
+### Whitespaces
 
 Whitespaces are space, tab and newline. They work as delimiters. There's no comma anywhere. You can put as many whitespaces as you want anywhere you want.
 
@@ -108,7 +108,7 @@ is same as
 
     a: [1 "b" c@d.e]
 
-####Why no comma?
+#### Why no comma?
 
 The question is, why comma? 
 
@@ -132,13 +132,13 @@ However languages with richer datatype support may understand this as for exampl
 
 Just use it as you want to. It's simpler way to express itself.
 
-###Comment  
+### Comment  
 
 Comments start with `;`
 
     ; this is comment
 
-###String
+### String
 
 There are two types of string. Single line and multi line. Single line string starts and ends with quotes. Multiline string starts with `{` and ends with `}`. String is UTF-8 encoded. Special characters are escaped with `^` (see table below)
 
@@ -230,13 +230,13 @@ Inserts control-letter (A-Z).
 Inserts an Unicode character by hexidecimal (xxxx) number.
 </td></tr></table>
 
-###None
+### None
 
 `NONE` is value that loader should convert to apropriate value in target language, for example `NULL`.
 	
 	NONE
 
-###Boolean (logic)
+### Boolean (logic)
 
 There are six boolean values. Why not just two? Because `TRUE` and `FALSE` are not enough. Sometimes it's better to use `YES` or `NO` or `ON` and `OFF`.	
 
@@ -244,7 +244,7 @@ There are six boolean values. Why not just two? Because `TRUE` and `FALSE` are n
 	NO
 	ON
 
-###Integer
+### Integer
 
 64bit integer number
 
@@ -258,7 +258,7 @@ Parser rules:
 	minus: #"-"
 	integer: [opt minus some numbers opt [exponent opt minus some numbers]]
 	
-###Floating point
+### Floating point
 
 Floating point number
 
@@ -270,7 +270,7 @@ Parser rules:
 	dot: #"."
 	float: [opt minus some numbers dot integer]
 
-###Word
+### Word
 
 Word contains alphanumerical characters, numbers and any of following characters:
 
@@ -293,7 +293,7 @@ Parser rules:
 	specials: [#"?" #"!" #"." #"'" #"+" #"-" #"*" #"&" #"|" #"=" #"_"]
 	characters: [some [letters | numbers | specials]]
 	
-###Key (set-word)
+### Key (set-word)
 
 Key (also set-word) is used to indicate that word should get following value. Format of set-word is word followed by colon.
 
@@ -301,21 +301,21 @@ Key (also set-word) is used to indicate that word should get following value. Fo
     name: "Pepa"
     color: #FF00FF
 
-###Email
+### Email
 
 Standard email - see [RFC5322](http://tools.ietf.org/html/rfc5322#section-3.4.1)
 
     test@example.com
 
 
-###URI
+### URI
 
 Standard URI - see [RFC3986](http://tools.ietf.org/html/rfc3986)
     
     http://www.example.com
 
 
-###Date and time
+### Date and time
 
 Date and time as defined in [RFC3339](http://www.ietf.org/rfc/rfc3339.txt)
 You can use slash instead of T, so it's more human readable.
@@ -325,21 +325,21 @@ You can use slash instead of T, so it's more human readable.
     1-1-2000/13:20
     1937-01-01T12:00:27.87+00:20
 
-###Block
+### Block
 
     [ "this" is: block ]
 
-###Object
+### Object
 
 Object is collection of set-words (keys) and values kept together in block and prefixed with object! word.
 
-###Map
+### Map
 
 Map is similiar to object but can have strings as keys. 
 
-##Structure
+## Structure
 
-###Header
+### Header
 
 The header is optional but you are encouraged to use it. Unless you know what you are sending and where, you should include a header as it enhances readability. The header can contain name, type, version, date, checksum and other useful information about the data that follows. Parsers can then, for example, just read the header and decide if it makes sense to read the rest of the data. It may require version handling, deal with expired data etc. The header format is `REN` followed by a block of key/value pairs. The header can also be empty.
 
